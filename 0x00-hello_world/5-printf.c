@@ -1,9 +1,10 @@
 #include<stdio.h>
 /**
- * main - Entry point
+ * main - write the string output
  *
- * Return: Always 0 (success)
+ * Return: 0 when successfull
  */
+
 int main(void)
 {
 	printf("with proper grammar, but outcome is a pieace of art,\n");
