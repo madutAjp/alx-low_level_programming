@@ -1,3 +1,2 @@
 #!/bin/bash
-gcc $CFILE -o output
-./output
+gcc $CFILE -E $CFILE -o c
