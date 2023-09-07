@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - this is the main function
+ * main - It write a string to the standard output
  *
  * Return;  always 0
  */
