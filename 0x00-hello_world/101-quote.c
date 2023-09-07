@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <unistd.h>
+
+
 /**
- * main - Entry point
+ * main - write the string standard output
  *
+ * Return: 0 when successfull
  */
+
+
 int main(void)
 {
-	write(2,
-	"and that piece of art is useful" - Dora Korpar, 2015-10-19);	
+	fput("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
 	return (1);
 }
