@@ -1,24 +1,23 @@
 #include <stdio.h>
 
-
 /**
- * main - Entry point
+ * main - Inventing is the combination of brains
  *
- * Return: 0 when successfull 
+ * Return:0 when done
  */
 int main(void)
 {
-	int i, m;
+	int m, p;
 
-	for (i = 0 ; i <= 9 ; i++)
+	for (m = 0; m <= 8; m++)
 	{
-		putchar('0' + i);
+		putchar(m + '0');
 	}
-	for (m = i + 1 ; m <= 9 ; m++)
+	for (p = m + 1; p <= 9; p++)
 	{
-		putchar('0' + m);
+		putchar(p + '0');
 	}
-	if (i != 8 || m != 9)
+	if (m < 8 || p < 9)
 	{
 		putchar(',');
 		putchar(' ');
