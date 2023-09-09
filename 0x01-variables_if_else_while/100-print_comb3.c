@@ -7,17 +7,21 @@
  */
 int main(void)
 {
-	int m, p;
+	int num_1 = '0';
+	int num_2 = '0';
 
-	for (m = 10; m <= 18; m++)
+	while (num_1 <= '9')
 	{
-		putchar(m + '0');
+		num_2 = num_1 + 1;
 	}
-	for (p = m + 11; p <= 29; p++)
+	num_2++;
+	while (num_2 <= '9')
 	{
-		putchar(p + '0');
+		putchar(num_1);
+		putchar(num_2);
 	}
-	if (m < 18 || p < 29)
+	num_1++;
+	if (num_1 != '8' || num_2 != '9')
 	{
 		putchar(',');
 		putchar(' ');
