@@ -7,22 +7,23 @@
  */
 int main(void)
 {
-	int num_1 = '0';
-	int num_2 = '0';
+	int num1, num2;
 
-	while (num_1 <= '9')
+	num1 = 0;
+
+	while (num1 <= 10)
 	{
-		num_2 = num_1 + 1;
+		num2 = 0;
 	}
-	num_2++;
-	while (num_2 <= '9')
+	num2++;
+	while (num2 <= 9)
 	{
-		putchar(num_1);
-		putchar(num_2);
 	}
-	num_1++;
-	if (num_1 != '8' || num_2 != '9')
+	num1++;
+	if (num1 != num2)
 	{
+		putchar(num1 + '0');
+		putchar(num2 + '0');
 		putchar(',');
 		putchar(' ');
 	}
