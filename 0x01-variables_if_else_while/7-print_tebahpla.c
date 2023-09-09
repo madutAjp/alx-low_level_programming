@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 
 /**
@@ -10,7 +11,7 @@ int main(void)
 {
 	char m;
 
-	for (m = 'z' ; m <= 'z' ; m--)
+	for (m = 'z' ; m >= 'z' ; m--)
 	{
 		putchar(m);
 	}
