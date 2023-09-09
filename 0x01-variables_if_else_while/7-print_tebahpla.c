@@ -1,17 +1,19 @@
 #include <stdio.h>
 
+
 /**
- * main - Start here
+ * main - Entry point here
  *
- * Return: 0 when done
+ * Return:0 when done
  */
 int main(void)
 {
-	int a;
+	char m;
 
-	for (a = 'z' ; a >= 'a' ; a++)
-		putchar(a);
-	for (a != 'e' ; && a != 'q';)
+	for (m = 'z' ; m <= 'z' ; m--)
+	{
+		putchar(m);
+	}
 	putchar('\n');
 	return (0);
 }
