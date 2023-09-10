@@ -14,11 +14,14 @@ int main(void)
 	for (m = 0; m <= 9; m++)
 	{
 		putchar(m + '0');
-		putchar(',');
 	}
 	for (v = m + 1; v <= 9; v++)
 	{
 		putchar(v + '0');
+	}
+	if (!(m == 9 && v == 8))
+	{
+		putchar(',');
 		putchar(' ');
 	}
 	putchar('\n');
