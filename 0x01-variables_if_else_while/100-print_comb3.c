@@ -11,20 +11,15 @@ int main(void)
 {
 	int m, v;
 
-	for (m = '0' ; m < '9' ; m++)
+	for (m = 0; m <= 9; m++)
 	{
-		putchar(m);
+		putchar(m + '0');
+		putchar(',');
 	}
-	for (v = m + 1; v <= '9'; v++)
+	for (v = m + 1; v <= 9; v++)
 	{
-	}
-	if (v != m)
-	{
-		putchar(m);
-		putchar(v);
-	if (m == '8' && v == '9')
-	putchar(',');
-	putchar(' ');
+		putchar(v + '0');
+		putchar(' ');
 	}
 	putchar('\n');
 	return (0);
