@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
  * main - Inventing is the combination of brains
@@ -7,25 +9,22 @@
  */
 int main(void)
 {
-	int num1, num2;
+	int m, v;
 
-	num1 = 0;
-
-	while (num1 <= 10)
+	for (m = '0' ; m < '9' ; m++)
 	{
-		num2 = 0;
+		putchar(m);
 	}
-	num2++;
-	while (num2 <= 9)
+	for (v = m + 1; v <= '9'; v++)
 	{
 	}
-	num1++;
-	if (num1 != num2)
+	if (v != m)
 	{
-		putchar(num1 + '0');
-		putchar(num2 + '0');
-		putchar(',');
-		putchar(' ');
+		putchar(m);
+		putchar(v);
+	if (m == '8' && v == '9')
+	putchar(',');
+	putchar(' ');
 	}
 	putchar('\n');
 	return (0);
