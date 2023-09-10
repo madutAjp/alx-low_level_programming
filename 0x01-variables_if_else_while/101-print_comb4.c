@@ -7,24 +7,25 @@
  */
 int main(void)
 {
-	int m;
-	int l;
-	int t;
+	int z, m, a;
 
+	for (z = 0; z <= 7; z++)
+	{
+	for (m = z + 1; m <= 8; m++)
+	{
+	for (a = m + 1; a <= 9; a++)
+	{
+	putchar(z + '0');
+	putchar(m + '0');
+	putchar(a + '0');
 
-	for (m = 0; m <= 7; m++) {
-        for (l = m + 1; l <= 8; l++) {
-            for (t = l + 1; t <= 9; t++) {
-                putchar('0', + m, l, t);
-
-                if (m != 7 || l != 8 || t != 9) {
-                    putchar(", ");
-		    putchar(' ');
-		}
-	    }
+	if (z != 7 || m != 8 || a != 9)
+	{
+	putchar(',');
+	putchar(' ');
 	}
 	}
-	putchar('\n');
+	}
+	}
 	return (0);
-
 }
