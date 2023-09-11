@@ -13,13 +13,19 @@ int main(void)
 	{
 	for (v = 0; v <= 99; v++)
 	{
+	if (m < v)
+	{
 	putchar(m / 10 + '0');
 	putchar(m % 10 + '0');
 	putchar(' ');
-	putchar(',');
 	putchar(v / 10 + '0');
 	putchar(v % 10 + '0');
-	putchar(',');
+	if (m != 98 || v != 99)
+	{
+		putchar(',');
+		putchar(' ');
+	}
+	}
 	}
 	}
 	putchar('\n');
