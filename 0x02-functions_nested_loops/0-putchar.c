@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * main - Entry point of the program
  *
@@ -8,7 +9,7 @@ int main(void)
 {
 	_putchar('_');
 	_putchar('m');
-	_putchar('k');
+	_putchar('z');
 	_putchar('k');
 	_putchar('t');
 	_putchar('g');
