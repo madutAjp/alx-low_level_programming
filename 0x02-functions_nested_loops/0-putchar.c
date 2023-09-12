@@ -7,6 +7,16 @@
  */
 int main(void)
 {
-    /*putchar("_\n");  */
+    /*
+     * putchar('_');
+     * putchar('m');
+     * putchar('c');
+     * putchar('j');
+     * putchar('z');
+     * putchar('r');
+     * putchar('p');
+     * putchar('k');
+     * putchar('\n');
+     */
 	return (0);
 }
