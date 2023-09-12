@@ -1,11 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
+
 /**
+ * main - Entry point of the program
  *
- * Return:0 when done
+ * Return: Always 0 (indicating successful execution)
  */
 int main(void)
 {
-	Putchar("_putchar\n");
+    /*putchar("_\n");  */
 	return (0);
 }
