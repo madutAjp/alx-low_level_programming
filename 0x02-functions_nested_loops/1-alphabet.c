@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * print_alphabet - program that prints the alphabet in lowercase
+ * print_alphabet - Prints the alphabet in lowercase
  *
- * Return:0 always when successful
+ * Return:0 when successful
  */
 void print_alphabet(void)
 {
@@ -14,6 +14,4 @@ void print_alphabet(void)
 	_putchar(v);
 	}
 	_putchar('\n');
-	return (0);
-
 }
