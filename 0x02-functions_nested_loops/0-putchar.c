@@ -9,13 +9,7 @@ int main(void)
 {
     /*
      * putchar('_');
-     * putchar('m');
-     * putchar('c');
-     * putchar('j');
-     * putchar('z');
-     * putchar('r');
-     * putchar('p');
-     * putchar('k');
+     * putchar(_putchar);
      * putchar('\n');
      */
 	return (0);
