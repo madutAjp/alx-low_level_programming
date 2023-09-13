@@ -14,10 +14,12 @@ int main(void)
 	if (m < 49)
 	{
 	printf("%ld", m);
+	printf(",");
 	}
 	else
 	{
 	printf("%ld\n", m);
+	printf(",");
 	{
 	if (m != 49)
 	printf(",");
