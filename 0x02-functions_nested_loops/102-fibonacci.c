@@ -7,21 +7,25 @@
  */
 int main(void)
 {
-	unsigned long int  t1 = 1;
-	unsigned long int t2 = 2;
-	int k;
+	long long int m = 0, b = 1, next;
 
-	printf("%lu", t1);
-	for (k = 1 ; k < 50 ; k++)
+	for (m = 0; m < 50; m++)
 	{
-	printf("%ld", t2);
-	t1 = t2;
-	t2 = t1;
-	if (k != 49)
+	if (m < 49)
 	{
+	printf("%lld", m);
+	}
+	else
+	{
+	printf("%lld\n", m);
+	{
+	if (m != 49)
 	printf(",");
+	next = m + b;
+	m = b;
+	b = next;
 	}
 	}
-	printf("\n");
+	}
 	return (0);
 }
