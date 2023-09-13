@@ -7,7 +7,6 @@
  */
 int main(void)
 {
-	int limit = 1024;
 	int sum = 0;
 	int m;
 
