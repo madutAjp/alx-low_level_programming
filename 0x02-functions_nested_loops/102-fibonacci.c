@@ -7,17 +7,17 @@
  */
 int main(void)
 {
-	long long int m = 0, b = 1, next;
+	long int m = 0, b = 1, next;
 
 	for (m = 0; m < 50; m++)
 	{
 	if (m < 49)
 	{
-	printf("%lld", m);
+	printf("%ld", m);
 	}
 	else
 	{
-	printf("%lld\n", m);
+	printf("%ld\n", m);
 	{
 	if (m != 49)
 	printf(",");
