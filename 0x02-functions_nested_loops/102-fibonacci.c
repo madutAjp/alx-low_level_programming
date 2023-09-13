@@ -10,13 +10,12 @@ int main(void)
 	unsigned long int  t1 = 1;
 	unsigned long int t2 = 2;
 	int k;
-	unsigned long int set;
 
 	printf("%lu", t1);
 	for (k = 1 ; k < 50 ; k++)
 	{
 	printf("%ld", t2);
-	set = t1 + t2;
+       	t1 + t2;
 	t1 = t2;
 	t2 = t1;
 	if (k != 49)
