@@ -20,12 +20,12 @@ void times_table(void)
 	f = (c - d) / 10;
 	_putchar(44);
 	_putchar(32);
-	_putchar(a + '0');
-	_putchar(b + '0');
+	_putchar(f + '0');
+	_putchar(d + '0');
 	}
 	else
 	{
-	if (f != 0)
+	if (b != 0)
 	{
 	_putchar(44);
 	_putchar(32);
