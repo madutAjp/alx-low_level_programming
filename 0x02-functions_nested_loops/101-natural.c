@@ -18,6 +18,6 @@ int main(void)
 	sum += m;
 	}
 	}
-	Printf(sum);
+	_putchar(sum);
 	return (0);
 }
