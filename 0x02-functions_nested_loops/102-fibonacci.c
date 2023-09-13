@@ -15,7 +15,6 @@ int main(void)
 	for (k = 1 ; k < 50 ; k++)
 	{
 	printf("%ld", t2);
-       	t1 + t2;
 	t1 = t2;
 	t2 = t1;
 	if (k != 49)
