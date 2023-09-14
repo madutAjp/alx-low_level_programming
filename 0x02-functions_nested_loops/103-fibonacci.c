@@ -8,7 +8,7 @@
 int main(void)
 {
 	int g = 4000000;
-	int a = 1, b = 2;
+	int a = 1, b = 0;
 	int next;
 	int sum = 2;
 
