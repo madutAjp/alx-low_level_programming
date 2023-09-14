@@ -7,12 +7,12 @@
  */
 int main(void)
 {
-	int limit = 4000000;
+	int g = 4000000;
 	int a = 1, b = 2;
 	int next;
 	int sum = 2;
 
-	while (a <= 4000000)
+	while (a <= g)
 	{
 	if (a % 2 == 0)
 	{
@@ -23,5 +23,6 @@ int main(void)
 	b = next;
 	}
 	printf("%d\n", sum);
+	return (0);
 
 }
