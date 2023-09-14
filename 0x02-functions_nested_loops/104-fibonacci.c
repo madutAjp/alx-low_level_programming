@@ -7,10 +7,10 @@
  */
 int main(void)
 {
-	long unsigned int m = 1;
-	long unsigned int b = 2;
-	long unsigned int temp;
-	long unsigned int g = 2;
+	unsigned long int m = 1;
+	unsigned long int b = 2;
+	unsigned long int temp;
+	unsigned long int g = 2;
 
 	printf("%ld, %ld,", m, b);
 	while (g < 98)
