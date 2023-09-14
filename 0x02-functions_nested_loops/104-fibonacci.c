@@ -7,19 +7,23 @@
  */
 int main(void)
 {
-	int m = 1;
-	int b = 2;
-	int temp;
-	int g = 2;
+	long int m = 1;
+	long int b = 2;
+	long int temp;
+	long int g = 2;
 
-	printf("%d, %d,", m, b);
+	printf("%ld, %ld,", m, b);
 	while (g < 98)
 	{
 	temp = b;
 	b = m + b;
 	m = temp;
-	printf("%d", b);
+	printf("%ld", b);
 	g++;
+	if (g != 97)
+	{
+	printf(",");
+	}
 	}
 	printf("\n");
 	return (0);
