@@ -7,18 +7,18 @@
  */
 int main(void)
 {
-	unsigned long long int m = 1;
-	unsigned long long int b = 2;
-	unsigned long long int temp;
-	unsigned long long int g = 2;
+	unsigned long int m = 1;
+	unsigned long int b = 2;
+	unsigned long int temp;
+	unsigned long int g = 2;
 
-	printf("%lld, %lld,", m, b);
+	printf("%ld, %ld,", m, b);
 	while (g < 98)
 	{
 	temp = b;
 	b = m + b;
 	m = temp;
-	printf("%lld", b);
+	printf("%ld", b);
 	g++;
 	if (g != 97)
 	{
