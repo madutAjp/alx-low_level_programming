@@ -9,10 +9,21 @@
  */
 void puts_half(char *str)
 {
-	int length;
-	int start = 0;
+	int length = strlen(str);
+	int start_index;
+	int m;
 
-	length = strlen(str);
-	start = length % 2 == 0 ? length / 2 : (length - 1) / 2;
-	printf("%s\n", str + start);
+	if (length % 2 == 0)
+	{
+	start_index = length / 2;
+	}
+	else
+	{
+	start_index = (length - 1) / 2;
+	}
+	for (m = start_index; str[m] != '\0'; m++)
+	{
+	printf("%c", str[m]);
+	}
+	printf("\n");
 }
