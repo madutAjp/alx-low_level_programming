@@ -1,0 +1,33 @@
+i
+w = 0;
+t = 0;
+digit = 0;
+
+while (s[low] != '\0') {
+    low++;
+}
+
+while (p < low && t == 0) {
+    if (s[p] == '-') {
+        ++m;
+    }
+    if (s[p] >= '0' && s[p] <= '9') {
+        digit = s[p] - '0';
+        if (m % 2) {
+            digit = digit;
+        }
+        v = v * 10 + digit;
+        t = 1;
+        if (s[p + 1] < '0' || s[p + 1] > '9') {
+            break;
+        }
+    }
+    p++;
+}
+
+if (v == 0) {
+    return 0;
+}
+
+return 0;
+
