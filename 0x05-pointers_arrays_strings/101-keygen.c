@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
 /**
@@ -22,7 +23,6 @@ void generatePassword(char *password, int length)
 	{
 	password[i] = charset[rand() % charsetsize];
 	}
-
 	password[length] = '\0';
 }
 
@@ -30,17 +30,28 @@ void generatePassword(char *password, int length)
  * main - Entry point of the program
  *
  * This program generates a random valid password using a specified length.
- * The generated password is then printed to the console.
+ * It compares the generated password with the expected password and prints
+ * the appropriate message.
  *
  * Return: 0 on successful execution
  */
 int main(void)
 {
-	char password[10];
-	int length = 9;
+	char password[15];
+	int length = 14;
+	char expectedPassword[] = "Tada! Congrats";
 
 	generatePassword(password, length);
 	printf("Generated Password: %s\n", password);
+	printf("Expected Password: %s\n", expectedPassword);
+	if (strcmp(password, expectedPassword) == 0)
+	{
+	printf("Passwords match! Congrats\n");
+	}
+	else
+	{
+	printf("Wrong password\n");
+	}
 	return (0);
 }
 
