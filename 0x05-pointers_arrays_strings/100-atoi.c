@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 #include <stdio.h>
 
 /**
@@ -8,8 +9,10 @@
  */
 int _atoi(char *s)
 {
+	int digit;
 	int result = 0;
 	int sign = 1;
+	bool overflow = false;
 
 	while (*s)
 	{
@@ -19,7 +22,13 @@ int _atoi(char *s)
 	}
 	else if (*s >= '0' && *s <= '9')
 	{
-	result = result * 10 + (*s - '0');
+	digit = *s - '0';
+	if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > INT_MAX % 10))
+	{
+	overflow = true;
+	break;
+	}
+	result = result * 10 + digit;
 	}
 	else if (result != 0)
 	{
@@ -27,5 +36,16 @@ int _atoi(char *s)
 	}
 	s++;
 	}
-	return (result * sign);
+	if (overflow)
+	{
+	(sign == 1);
+	{
+	return (LLONG_MAX);
+	else
+	{
+	return (LONG_MIN);
+return (result * sign);
+	}
+	}
+	}
 }
