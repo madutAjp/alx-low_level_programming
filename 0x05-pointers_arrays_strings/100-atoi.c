@@ -7,46 +7,37 @@
  */
 int _atoi(char *s)
 {
-	int p, m, v, low, t, digit;
+	int result = 0;
+	int sign = 1;
 
-	p = 0;
-	m = 0;
-	v = 0;
-	low = 0;
-	t = 0;
-	digit = 0;
-
-	low = 0;
-	while (s[low] != '\0')
+	while (*s == ' ' || *s == '\t' || *s == '\n')
 	{
-	low++;
+		s++;
 	}
-
-	while (p < low && t == 0)
+	if (*s == '-')
 	{
-	if (s[p] == '-')
-	{
-	++m;
+	sign = -1;
+		 s++;
 	}
-	if (s[p] >= '0' && s[p] <= '9')
+	else if (*s == '+')
 	{
-	digit = s[p] - '0';
-	if (m % 2)
-	{
-	digit = digit;
+		s++;
 	}
-	v = v * 10 + digit;
-	t = 1;
-	if (s[p + 1] < '0' || s[p + 1] > '9')
+	while (*s >= '0' && *s <= '9')
 	{
-	break;
+	if (result > (2147483647 - (*s - '0')) / 10)
+	{
+	if (sign == 1)
+	{
+	return (2147483647);
+	}
+	else
+	{
+	return (-2147483648);
 	}
 	}
-	p++;
+	result = result * 10 + (*s - '0');
+	s++;
 	}
-	if (v == 0)
-	{
-	return (0);
-	}
-	return (0);
+	return (result * sign);
 }
