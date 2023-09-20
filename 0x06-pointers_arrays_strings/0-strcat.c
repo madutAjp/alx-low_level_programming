@@ -4,25 +4,25 @@
  * _strcat - Concatenates two strings.
  * @dest:A pointer to the destination string.
  * @src:A pointer to the source string to append to dest.
- * Return:A pointer to the resulting string dest.
+ * Return:void
  */
 char *_strcat(char *dest, char *src)
 {
-	int m;
+	int m = -1;
 	int v;
 
-	while (dest[m] != '\0')
-	{
-		m++;
-	}
+	for (v = 0; dest[v] != '\0'; v++)
+	;
 
-	while (src[v] != '0')
-	{
-		dest[m] = src[v];
+	do {
 		m++;
+		dest[v] = src[m];
 		v++;
 	}
-	dest[m] = '\0';
-
+	while (src[m] != '0')
+	;
+	{
 	return (dest);
+	}
 }
+
