@@ -2,47 +2,63 @@
 #include <stdio.h>
 
 /**
- * reverse_array - Reverses the content of an array of integers.
- * @a: A pointer to the array of integers to be reversed.
+ * reverse_array - Reverses the elements of an integer array.
+ * @a: A pointer to the integer array.
  * @n: The number of elements in the array.
  *
- * Description: This function takes an array of integers and its length 'n',
- * and it reverses the order of elements in the array in-place.
- * For example, if the input array is [1, 2, 3, 4, 5] with n = 5, after calling
- * this function, the array will become [5, 4, 3, 2, 1].
+ * Description: This function takes an integer array 'a' and its length 'n' and
+ * reverses the order of elements in the array in-place.
+ * the elements from the start and end positions
+ * of the array until the entire array is reversed.
  */
 void reverse_array(int *a, int n)
 {
-	int m, hm;
+	int start = 0;
+	int end = n - 1;
+	int temp;
 
-	for (m = 0; m < n / 2; m++)
+	if (a == NULL || n <= 0)
 	{
-		hm = a[m];
-		a[m] = a[n - 1 - m];
-		a[n - 1 - m] = hm;
+		return;
+	}
+	while (start < end)
+	{
+		temp = a[start];
+		a[start] = a[end];
+		a[end] = temp;
+		start++;
+		end--;
 	}
 }
+
 /**
  * main - Entry point of the program.
  *
  * Description: This program demonstrates the use of the reverse_array
- * function to reverse an array of integers and prints the reversed array.
+ * function to reverse an integer array and prints both the original and
+ * reversed arrays.
  *
  * Return: Always returns 0 to indicate successful execution.
  */
 int main(void)
 {
 	int arr[] = {1, 2, 3, 4, 5};
-	int n = sizeof(arr) / sizeof(arr[0]);
-	int m;
+	int size = sizeof(arr) / sizeof(arr[0]);
+	int i;
 
-	reverse_array(arr, n);
-
-	printf("Reversed Array: ");
-	for (m = 0; m < n; m++)
+	printf("Original Array: ");
+	for (i = 0; i < size; i++)
 	{
-		printf("%d ", arr[m]);
+	printf("%d ", arr[i]);
+	}
+	printf("\n");
+	reverse_array(arr, size);
+	printf("Reversed Array: ");
+	for (i = 0; i < size; i++)
+	{
+	printf("%d ", arr[i]);
 	}
 	printf("\n");
 	return (0);
 }
+
