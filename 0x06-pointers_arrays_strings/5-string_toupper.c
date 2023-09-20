@@ -12,10 +12,6 @@ char *string_toupper(char *str)
 {
 	int i = 0;
 
-	if (str == NULL)
-	{
-		return (NULL);
-	}
 	while (str[i] != '\0')
 	{
 	if (islower(str[i]))
