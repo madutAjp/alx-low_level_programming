@@ -3,20 +3,20 @@
 
 /**
  * _strchr - Locates a character in a string
- * @s: Pointer to the string to search
+ * @str: Pointer to the string to search
  * @c: The character to locate
- * Return: A pointer to the first character c in the string s,
+ * Return: A pointer to the first character c in the string str,
  * or NULL if the character is not found
  */
-char *_strchr(char *s, char c)
+char *_strchr(char *str, char c)
 {
-	while (*s != '\0')
+	while (*str != '\0')
 	{
-		if (*s == c)
+		if (*str == c)
 		{
-			return (s);
+			return (str);
 		}
-		s++;
+		str++;
 	}
 	return (NULL);
 }
