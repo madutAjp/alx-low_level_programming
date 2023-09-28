@@ -8,24 +8,16 @@
  */
 int factorial(int n)
 {
-	int result = 1;
-
 	if (n < 0)
 	{
 		return (-1);
 	}
-	else if (n == 0)
+	else if (n == 0 || n == 1)
 	{
 		return (1);
 	}
 	else
 	{
-		result = 1;
-		while (n > 0)
-		{
-			result *= n;
-			n--;
-	}
-	return (result);
+		return (n * factorial(n - 1));
 	}
 }
