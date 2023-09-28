@@ -21,6 +21,10 @@ int is_divisible(int n, int divisor)
 	{
 		return (1);
 	}
+	if (divisor * divisor > n)
+	{
+		return (0);
+	}
 	return (is_divisible(n, divisor + 1));
 }
 /**
