@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <ctype.h>
 
 /**
  * main - A program that adds positive numbers
@@ -10,37 +10,20 @@
  */
 int main(int argc, char *argv[])
 {
-	int sum = 0;
-	bool hasError = false;
-	int i;
-	int num;
+	int m, k, add = 0;
 
-	if (argc == 1)
+	for (m = 1; m <  argc; m++)
 	{
-		printf("0\n");
-		return (0);
-	}
-	for (i = 1; i < argc; i++)
-	{
-		num = atoi(argv[i]);
-		if (num == 0 && argv[i][0] != '0')
+		for (k = 0; argv[m][k] != '\0'; k++)
 		{
-			printf("Error\n");
-			hasError = true;
-		}
-		else if (num < 0)
+		if (!isdigit(argv[m][k]))
 		{
-			printf("Error\n");
-			hasError = true;
+		printf("Error\n");
+		return (1);
 		}
-		else
-		{
-			sum += num;
 		}
+		add += atoi(argv[m]);
 	}
-	if (!hasError)
-	{
-		printf("%d\n", sum);
-	}
-	return (hasError ? 1 : 0);
+	printf("%d\n", add);
+	return (0);
 }
