@@ -12,30 +12,35 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *new_ptr;
+	char *clone, *relloc;
+	unsigned int m;
 
-	if (new_size == 0)
+	if (ptr != NULL)
 	{
-		free(ptr);
-		return (NULL);
-	}
-	else if (ptr == NULL)
-	{
-		return (malloc(new_size));
-	}
-	else if (new_size <= old_size)
-	{
-		return (ptr);
+		clone = ptr;
 	}
 	else
 	{
-		new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
+		return (malloc(new_size));
+	}
+	if (new_size == old_size)
 	{
-		return (NULL);
+		return (ptr);
 	}
-	memcpy(new_ptr, ptr, old_size);
+	if (new_size == 0 && ptr != NULL)
+	{
+		free(ptr);
+		return (0);
+	}
+	relloc = malloc(new_size);
+	if (relloc == NULL)
+	{
+		return (0);
+	}
+	for (m = 0; m < (old_size || m < new_size); m++)
+	{
+		*(relloc + m) = clone[m];
+	}
 	free(ptr);
-	return (new_ptr);
-	}
+	return (relloc);
 }
