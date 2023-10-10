@@ -7,6 +7,12 @@
  * @owner:The owner of the dog
  * description:A struct with dog's information
  */
+/**
+ * dog_t - new name for struct dog
+ */
+
+typedef struct dog dog_t;
+
 struct dog
 {
 	char *name;
