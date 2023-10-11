@@ -24,21 +24,24 @@ void print_opcodes(char *y, int n)
  * @argv:array to arguments
  * Return:0 when successful
  */
-int main(int argc, char **argv[])
+int main(int argc, char *argv[])
 {
 	int j;
+	int bytes;
+	char *main_address = (char *)main;
 
 	if (argc != 2)
 	{
 		printf("error\n");
-		exit(1);
+		return (1);
 	}
-	j = atoi(argv[1]);
-	if (j < 0)
+	bytes = atoi(argv[1]);
+	if (bytes < 0)
 	{
 		printf("error\n");
-		exit(2);
+		return (2);
 	}
-	print_opcodes((char *)&main, j);
+	main_address = (char *)main;
+	print_opcodes(main_address, bytes);
 	return (0);
 }
