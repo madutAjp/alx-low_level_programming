@@ -9,12 +9,12 @@
  */
 void print_opcodes(char *a, int n)
 {
-	int x;
+	int i;
 
-	for (x = 0; x < n; x++)
+	for (i = 0; i < n; i++)
 	{
-		printf("%.2hhx", a[x]);
-		if (x < n - 1)
+		printf("%.2hhx", a[i]);
+		if (i < n - 1)
 			printf(" ");
 	}
 	printf("\n");
@@ -27,19 +27,19 @@ void print_opcodes(char *a, int n)
  */
 int main(int argc, char **argv)
 {
-	int w;
+	int n;
 
 	if (argc != 2)
 	{
 		printf("error\n");
 		exit(1);
 	}
-	w = atoi(argv[1]);
-	if (w < 0)
+	n = atoi(argv[1]);
+	if (n < 0)
 	{
 		printf("error\n");
 		exit(2);
 	}
-	print_opcodes((char *)&main, w);
+	print_opcodes((char *)&main, n);
 	return (0);
 }
