@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * main - To prints its own opcodes
@@ -9,9 +10,9 @@
  */
 int main(int argc, char *argv[])
 {
-	int i;
-	int bytes;
-	char *arr;
+	int bytes, w;
+	void *address = main;
+	unsigned int opcode;
 
 	if (argc != 2)
 	{
@@ -24,15 +25,17 @@ int main(int argc, char *argv[])
 		printf("error\n");
 		exit(2);
 	}
-	arr = (char *)main;
-	for (i = 0; i < bytes; i++)
+	for (w = 0; w < bytes; w += sizeof(opcode))
 	{
-		if (i == bytes - 1)
-		{
-			printf("%02hhx\n", arr[i]);
-			break;
-		}
-		printf("%02hhx", arr[i]);
+		memcpy(&opcode, address, sizeof(opcode));
+		printf("%.8x", opcode);
+
+		if (w != bytes - sizeof(opcode))
+			continue;
+		printf(" ");
+
+		address += sizeof(opcode);
 	}
+	printf("\n");
 	return (0);
 }
