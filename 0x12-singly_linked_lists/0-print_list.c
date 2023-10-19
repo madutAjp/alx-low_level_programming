@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * print_list - prints all the elements of a list_t
@@ -7,7 +8,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t madut;
+	size_t madut = 0;
 
 	if (h == NULL)
 		return (0);
@@ -15,7 +16,7 @@ size_t print_list(const list_t *h)
 	for (madut = 1; h->next != NULL; madut++)
 	{
 		if (h->str == NULL)
-			printf("[%u] %s\n", h->len, "(nil)");
+			printf("[0] (nil)\n");
 		else
 			printf("[%u] %s\n", h->len, h->str);
 
