@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "lists.h"
 #include <stddef.h>
+
 /**
  * print_list - Prints all the elements of a list_t.
  * @h: A pointer to the beginning of the list.
@@ -8,7 +9,7 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t nodeCount = 0;
+	size_t madut = 0;
 
 	while (h)
 	{
@@ -16,11 +17,9 @@ size_t print_list(const list_t *h)
 			printf("[0] (nil)\n");
 		else
 			printf("[%u] %s\n", h->len, h->str);
-		if (h->next)
 		h = h->next;
-		else
-			break;
-		nodeCount++;
+		madut++;
 	}
-	return (nodeCount);
+	return (madut);
 }
+
