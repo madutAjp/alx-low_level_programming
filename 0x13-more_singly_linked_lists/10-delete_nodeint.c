@@ -13,7 +13,7 @@
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *irene, *ajp;
-	unsigned int madut = 0;
+	unsigned int leykun = 0;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
@@ -24,11 +24,11 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		free(irene);
 		return (1);
 	}
-	while (irene != NULL && madut < index)
+	while (irene != NULL && leykun < index)
 	{
 		ajp = irene;
 		irene = irene->next;
-		madut++;
+		leykun++;
 	}
 	if (irene != NULL)
 	{
