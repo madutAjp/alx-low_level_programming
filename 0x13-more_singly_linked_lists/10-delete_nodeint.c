@@ -12,28 +12,27 @@
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
-	listint_t *irene, *ajp;
+	listint_t *irene = NULL;
+	listint_t *madut = *head;
 	unsigned int leykun = 0;
 
-	if (head == NULL || *head == NULL)
+	if (*head == NULL)
 		return (-1);
-	irene = *head;
 	if (index == 0)
 	{
-		*head = irene->next;
-		free(irene);
+		*head = (*head)->next;
+		free(madut);
 		return (1);
 	}
-	while (irene != NULL && leykun < index)
+	while (leykun < index - 1)
 	{
-		ajp = irene;
-		irene = irene->next;
+		if (!madut || !(madut->next))
+			return (-1);
+		madut = madut->next;
 		leykun++;
 	}
-	if (irene != NULL)
-	{
-		ajp->next = irene->next;
-		return (1);
-	}
-	return (-1);
+	irene = madut->next;
+	madut->next = irene->next;
+	free(irene);
+	return (1);
 }
