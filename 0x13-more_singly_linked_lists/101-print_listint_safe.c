@@ -32,26 +32,26 @@ void free_listp(listp_t **head)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t dut = 0;
-	listp_t *hey, *neto, *madut;
+	listp_t *hptr, *neto, *madut;
 
-	hey = NULL;
+	hptr = NULL;
 	while (head != NULL)
 	{
 		neto = malloc(sizeof(listp_t));
 		if (neto == NULL)
 			exit(98);
 		neto->p = (void *)head;
-		neto->next = hey;
-		hey = neto;
+		neto->next = hptr;
+		hptr = neto;
 
-		madut = hey;
+		madut = hptr;
 		while (madut->next != NULL)
 		{
 			madut = madut->next;
 			if (head == madut->p)
 			{
 				printf("->[%p] %d\n", (void *)head, head->n);
-				free_listp(&hey);
+				free_listp(&hptr);
 				return (dut);
 			}
 		}
@@ -59,6 +59,6 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		dut++;
 	}
-	free_listp(&hey);
+	free_listp(&hptr);
 	return (dut);
 }
