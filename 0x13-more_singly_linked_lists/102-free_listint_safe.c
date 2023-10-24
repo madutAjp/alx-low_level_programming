@@ -14,8 +14,6 @@ size_t free_listint_safe(listint_t **h)
 	listint_t *ajp;
 	size_t madut = 0;
 
-	if (*h == NULL || *h == NULL)
-		return (0);
 	irene = *h;
 	while (irene != NULL)
 	{
@@ -23,7 +21,11 @@ size_t free_listint_safe(listint_t **h)
 		irene = irene->next;
 		free(ajp);
 		madut++;
+		if (ajp == *h)
+		{
+			*h = NULL;
+			break;
+		}
 	}
-	*h = NULL;
 	return (madut);
 }
