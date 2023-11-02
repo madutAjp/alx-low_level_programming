@@ -26,7 +26,7 @@ int open_write_file(char *file_to)
  * @fd_to:the file descriptor of destination file
  * Return:0 when success, or -1 if an error occurred
  */
-int copy_file(int fd_from, int fd_to)
+int copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to)
 {
 	ssize_t dutbytes;
 	char buffer[BUFFER_SIZE];
@@ -35,13 +35,13 @@ int copy_file(int fd_from, int fd_to)
 	{
 		if (write(fd_to, buffer, dutbytes) != dutbytes)
 		{
-			dprintf(2, "Error writting to the destination file\n");
+			dprintf(2, "Error: can't write to %s\n", file_to);
 			exit(99);
 		}
 	}
 	if (dutbytes == -1)
 	{
-		dprintf(2, "Error reading from the source file\n");
+		dprintf(2, "Error: can't read from file %s\n", file_from);
 		exit(98);
 	}
 	return (0);
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
 		exit(99);
 	}
-	if (copy_file(fd_from, fd_to) == -1)
+	if (copy_file(fd_from, fd_to, file_from, file_to) == -1)
 	{
 		close(fd_from);
 		close(fd_to);
