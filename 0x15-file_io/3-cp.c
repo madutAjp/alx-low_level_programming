@@ -1,104 +1,91 @@
 #include "main.h"
-#include <stdio.h>
-#include <unistd.h>
+#define BUFFER_SIZE 1024
 
 /**
- * open_read_file - Opens a file in read mode and returns descriptor
- * @file_from:the name of the file to open
- * Return:the file descriptor of the opened file, or -1
+ * error_98 - handles error code 98
+ * @fd: file descriptor
+ * @buffer: buffer to free
+ * @file: file name
  */
-int open_read_file(char *file_from)
+void error_98(int fd, char *buffer, char *file)
 {
-	return (open(file_from, O_RDONLY));
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
+		free(buffer);
+		exit(98);
+	}
 }
-/**
- * open_write_file - Opens a file in write mode and returns decriptor
- * @file_to:the name of the file to open
- * Return:the file descriptor of the opened file, or -1
- */
-int open_write_file(char *file_to)
-{
-	return (open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664));
-}
-/**
- * copy_file - copies the content from one file to another
- * @fd_from:the file descriptor of the source file
- * @fd_to:the file descriptor of destination file
- * @file_from:the source file path
- * @file_to:destination file path
- * Return:0 when success, or -1 if an error occurred
- */
-int copy_file(int fd_from, int fd_to,
-		const char *file_from, const char *file_to)
-{
-	ssize_t dutbytes;
-	char buffer[BUFFER_SIZE];
 
-	while ((dutbytes = read(fd_from, buffer, BUFFER_SIZE)) > 0)
-	{
-		if (write(fd_to, buffer, dutbytes) != dutbytes)
-		{
-			if (file_to[0] == '\0')
-			{
-				dprintf(2, "Error: can't write to\n");
-			}
-		}
-		else
-		{
-			dprintf(2, "Error: can't write to %s\n", file_to);
-			exit(99);
-		}
-	}
-	if (dutbytes == -1)
-	{
-		dprintf(2, "Error: can't read from file %s\n", file_from);
-exit(98);
-	}
-	return (0);
-}
 /**
- * main - Copy the content from one file to another
+ * error_99 - handles error code 99
+ * @fd: file descriptor
+ * @buffer: buffer to free
+ * @file: file name
+ */
+void error_99(int fd, char *buffer, char *file)
+{
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
+		free(buffer);
+		exit(99);
+	}
+}
+
+/**
+ * error_100 - handles error code 100
+ * @fd: file descriptor
+ * @buffer: buffer to free
+ */
+void error_100(int fd, char *buffer)
+{
+	if (fd == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close file descriptor\n");
+		free(buffer);
+		exit(100);
+	}
+}
+
+/**
+ * main - Entry point
  * @argc: number of arguments
- * @argv: array of arguments including source
+ * @argv: pointer to an array of arguments
  * Return: 0 on success, or exit with an error code
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int fd_from, fd_to;
-	char *file_from;
-	char *file_to;
+	int dut, iren, ley;
+	char *buffer;
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
+
 	}
-	file_from = argv[1];
-	file_to = argv[2];
-	fd_from = open_read_file(file_from);
-	if (fd_from == -1)
+	buffer = malloc(sizeof(char) * BUFFER_SIZE);
+	if (!buffer)
 	{
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", file_from);
-		exit(98);
+		return (0);
 	}
-	fd_to = open_write_file(file_to);
-	if (fd_to == -1)
-	{
-		close(fd_from);
-		dprintf(STDERR_FILENO, "Error: can't write to %s\n", file_to);
-		exit(99);
-	}
-	if (copy_file(fd_from, fd_to, file_from, file_to) == -1)
-	{
-		close(fd_from);
-		close(fd_to);
-		dprintf(STDERR_FILENO, "Error: can't read from file %s\n", file_from);
-		exit(99);
-	}
-	if (close(fd_from) == -1 || close(fd_to) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: can't close fd %d\n", fd_from);
-		exit(100);
-	}
+	iren = open(argv[1], O_RDONLY);
+	error_98(iren, buffer, argv[1]);
+	dut = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+	error_99(dut, buffer, argv[2]);
+	do {
+		ley = read(iren, buffer, BUFFER_SIZE);
+		if (ley == 0)
+			break;
+		error_98(ley, buffer, argv[1]);
+		iren = write(dut, buffer, ley);
+		error_99(iren, buffer, argv[2]);
+	} while (ley >= BUFFER_SIZE);
+	ley = close(dut);
+	error_100(ley, buffer);
+	ley = close(iren);
+	error_100(ley, buffer);
+	free(buffer);
 	return (0);
 }
