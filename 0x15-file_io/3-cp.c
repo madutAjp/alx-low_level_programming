@@ -24,9 +24,12 @@ int open_write_file(char *file_to)
  * copy_file - copies the content from one file to another
  * @fd_from:the file descriptor of the source file
  * @fd_to:the file descriptor of destination file
+ * @file_from:the source file path
+ * @file_to:destination file path
  * Return:0 when success, or -1 if an error occurred
  */
-int copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to)
+int copy_file(int fd_from, int fd_to,
+		const char *file_from, const char *file_to)
 {
 	ssize_t dutbytes;
 	char buffer[BUFFER_SIZE];
@@ -35,6 +38,13 @@ int copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to
 	{
 		if (write(fd_to, buffer, dutbytes) != dutbytes)
 		{
+			if (file_to[0] == '\0')
+			{
+				dprintf(2, "Error: can't write to\n");
+			}
+		}
+		else
+		{
 			dprintf(2, "Error: can't write to %s\n", file_to);
 			exit(99);
 		}
@@ -42,7 +52,7 @@ int copy_file(int fd_from, int fd_to, const char *file_from, const char *file_to
 	if (dutbytes == -1)
 	{
 		dprintf(2, "Error: can't read from file %s\n", file_from);
-		exit(98);
+exit(98);
 	}
 	return (0);
 }
