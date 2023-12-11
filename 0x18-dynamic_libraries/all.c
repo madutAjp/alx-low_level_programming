@@ -11,9 +11,6 @@ int madut_mod(int a, int b)
 {
         return (a % b);
 }
-#include <stdlib.h>
-#include <stdio.h>
-
 /**
  * mul - To multiply two integer
  * @a:first integer
@@ -24,8 +21,6 @@ int mul(int a, int b)
 {
 	return (a * b);
 }
-#include <stdlib.h>
-
 /**
  * madut_sub - To subtract two integer
  * @a:first integer
@@ -36,8 +31,6 @@ int madut_sub(int a, int b)
 {
         return (a - b);
 }
-#include <stdlib.h>
-
 /**
  * madut_add - To add two integer
  * @a:first integer
